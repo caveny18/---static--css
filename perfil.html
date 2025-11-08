@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil | Kuyana</title>
+  <link rel="stylesheet" href="perfil.css" />
+  <script defer src="perfil.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css">
+</head>
+
+<body>
+  <header class="top-bar">
+    <img src="kuyanalogo.png" alt="Kuyana Logo" class="logo" id="goHome">
+  </header>
+
+  <main class="perfil-container">
+    <div class="perfil-card" id="perfilCard">
+      <div class="perfil-header">
+        <div class="foto-container">
+          <img id="fotoPerfil" src="negocio-default.png" alt="Foto del negocio">
+          <label for="fotoInput" class="btn-cambiar-foto">📸</label>
+          <input type="file" id="fotoInput" accept="image/*" hidden>
+        </div>
+
+        <h2 id="apodoDisplay">@Usuario</h2>
+        <span class="verificado">✔️ Verificado</span>
+        <div class="nivel-container">
+          <div class="nivel-info">
+            <span>Nivel financiero: <strong>3</strong></span>
+            <span class="etiqueta">Avanzando 💪</span>
+          </div>
+          <div class="barra-nivel">
+            <div class="progreso" style="width: 60%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="perfil-info">
+        <h3>Negocio</h3>
+        <p><strong>Rubro:</strong> <span id="rubroDisplay"></span></p>
+        <p><strong>Experiencia:</strong> <span id="experienciaDisplay"></span></p>
+        <p><strong>Ubicación:</strong> <span id="ubicacionDisplay"></span></p>
+      </div>
+
+      <div class="perfil-contacto">
+        <h3>Contacto</h3>
+        <p><strong>Celular:</strong> <span id="celularDisplay"></span></p>
+        <p><strong>Correo:</strong> <span id="emailDisplay"></span></p>
+      </div>
+
+      <div class="perfil-acciones">
+        <button id="btnVista" class="btn-secundario">👁 Vista pública</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Menú inferior -->
+  <nav class="menu-inferior">
+
+    <a href="match.html" class="menu-item">
+      <i class="lucide-search"></i><span>Junta</span>
+    </a>
+    <a href="educacion.html" class="menu-item">
+      <i class="lucide-graduation-cap"></i><span>Aprender</span>
+    </a>
+    <a href="invertir.html" class="menu-item">
+      <i class="lucide-piggy-bank"></i><span>Invertir</span>
+    </a>
+    <a href="perfil.html" class="menu-item activo">
+      <i class="lucide-user"></i><span>Perfil</span>
+    </a>
+  </nav>
+</body>
+</html>

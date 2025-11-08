@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Match de Juntas — Kuyana</title>
+  <link rel="stylesheet" href="match.css">
+</head>
+<body>
+  <header class="topbar">
+    <img src="logo.png" alt="Kuyana" class="logo" onclick="location.href='perfil.html'">
+    <h1>Encuentra tu junta</h1>
+  </header>
+
+  <main class="wrap">
+    <section class="deck" id="deck"></section>
+
+    <div class="controls">
+      <button id="btnNo" class="ctrl btn-no" aria-label="No">❌</button>
+      <button id="btnInfo" class="ctrl btn-info" aria-label="Info">👁️</button>
+      <button id="btnYes" class="ctrl btn-yes" aria-label="Sí">❤️</button>
+    </div>
+  </main>
+
+  <!-- modal match -->
+  <div id="matchModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-body">
+        <h2>🎉 ¡Match financiero!</h2>
+        <p id="matchText">Puedes iniciar una junta con ...</p>
+        <div class="modal-actions">
+          <button id="goChat" class="primary">Contactar</button>
+          <button id="closeModal" class="secondary">Seguir buscando</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="match.js"></script>
+</body>
+</html>

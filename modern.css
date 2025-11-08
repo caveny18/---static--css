@@ -1,0 +1,240 @@
+/* ===========================
+   🌐 KUYANA - Modern Fintech Style
+   =========================== */
+
+:root {
+  --color-primary: #077ca0;
+  --color-secondary: #049e4c;
+  --color-accent: #00b4d8;
+  --color-dark: #001c3d;
+  --text-light: #f8fbff;
+  --text-muted: #bcdfff;
+}
+
+/* ---- GLOBAL ---- */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0a0a0f, #00182a);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ---- NAVBAR ---- */
+.navbar-custom {
+  background: rgba(0, 20, 40, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.4s ease;
+}
+.navbar-custom.scrolled { background: rgba(0, 20, 40, 0.95); }
+.navbar-nav .nav-link { color: var(--text-muted) !important; font-weight: 500; transition: color 0.3s; }
+.navbar-nav .nav-link:hover { color: var(--color-accent) !important; }
+
+/* ---- HERO ---- */
+.hero-section {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+.hero-section .carousel-item img.hero-img {
+  height: 90vh;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 2;
+}
+.carousel-caption {
+  z-index: 3;
+}
+.carousel-caption h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+}
+.carousel-caption p {
+  opacity: 0.9;
+}
+
+/* ---- BENEFICIOS ---- */
+.beneficios {
+  background: #f8fbff;
+  color: #001c3d;
+}
+.beneficios h2 {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card-beneficio {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.card-beneficio:hover { transform: translateY(-8px); }
+.icon-circle {
+  width: 70px; height: 70px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  color: white; font-size: 1.8rem;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+/* ---- FAQ ---- */
+.faq {
+  background: linear-gradient(180deg, #00182a, #000f20);
+  color: var(--text-light);
+}
+.faq .accordion-button {
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-weight: 500;
+}
+.faq .accordion-button:not(.collapsed) {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: white;
+}
+.faq .accordion-body {
+  background: rgba(255,255,255,0.05);
+  color: #cde7ff;
+}
+
+/* ---- BOTÓN ---- */
+.btn-gradient {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: white; border: none;
+  border-radius: 25px; padding: 10px 24px;
+  transition: all 0.3s ease;
+}
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,191,255,0.4);
+}
+
+/* ---- FOOTER ---- */
+.footer-tech {
+  background: #00182a;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* ---- ANIMACIONES ---- */
+.animate-fadeup { animation: fadeUp 1s ease-in-out; }
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+/* ---- NAVBAR ACTUALIZADA ---- */
+.navbar-custom {
+  background: rgba(0, 20, 40, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 500;
+  padding: 8px 14px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar .btn-outline-light {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar .btn-gradient {
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+/* ---- FAQ MODERNA ---- */
+.faq {
+  background: linear-gradient(180deg, #00182a, #000f20);
+  color: var(--text-light);
+  padding: 80px 0;
+}
+
+.faq .accordion-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq .accordion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.2);
+}
+
+.faq .accordion-button {
+  background: transparent;
+  color: #e0f4ff;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 18px 20px;
+  border: none;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.faq .accordion-button::after {
+  content: "\f078"; /* icono caret abajo */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.faq .accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+}
+
+.faq .accordion-button:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.faq .accordion-button:not(.collapsed) {
+  background: rgba(0, 180, 216, 0.15);
+  color: white;
+}
+
+.faq .accordion-body {
+  background: rgba(255, 255, 255, 0.03);
+  color: #cde7ff;
+  padding: 18px 25px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animación de apertura */
+.accordion-collapse.collapse.show {
+  animation: slideDown 0.35s ease forwards;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

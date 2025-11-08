@@ -1,0 +1,72 @@
+/* match.css — Estética bancaria + Tinder-like */
+:root{
+  --bg1: #00182a;
+  --bg2: #003150;
+  --card: #ffffff;
+  --accent: #00cfa5;
+  --primary: #0077ff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,InterVar,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#eaf9ff;background:linear-gradient(180deg,var(--bg1),var(--bg2));-webkit-font-smoothing:antialiased}
+
+.topbar{
+  display:flex;align-items:center;gap:12px;padding:14px 18px;
+  background:rgba(255,255,255,0.03);backdrop-filter:blur(6px);
+  position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(255,255,255,0.03)
+}
+.topbar .logo{width:54px;height:auto;cursor:pointer;transition:transform .2s}
+.topbar .logo:hover{transform:scale(1.04)}
+.topbar h1{font-size:1.05rem;margin:0;color:#dff8ff;font-weight:600}
+
+/* layout */
+.wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:18px 12px 120px;min-height:calc(100vh - 72px)}
+.deck{width:100%;max-width:420px;height:640px;position:relative;display:flex;align-items:center;justify-content:center}
+
+/* card */
+.card{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:340px;max-width:92vw;height:520px;border-radius:18px;background:var(--card);color:#073240;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,opacity .2s ease;
+  touch-action:none;user-select:none;
+}
+.card img{width:100%;height:60%;object-fit:cover}
+.card .meta{padding:14px 16px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.card h3{margin:0;font-size:1.25rem;color:#012434}
+.card p{margin:6px 0;color:#4a6b75}
+.badges{display:flex;gap:8px;margin-top:8px}
+.badge{background:linear-gradient(90deg,var(--primary),var(--accent));color:white;padding:6px 10px;border-radius:999px;font-size:0.82rem;box-shadow:0 6px 18px rgba(0,119,255,0.12)}
+
+/* like/dislike indicators */
+.indicator {
+  position:absolute;top:22px;left:22px;padding:10px 14px;border-radius:8px;font-weight:700;opacity:0;transform:scale(.9);
+  transition:all .18s ease;
+}
+.indicator.like{right:auto;left:22px;background:rgba(4,200,150,0.95);color:white}
+.indicator.no{right:22px;left:auto;background:rgba(255,90,90,0.95);color:white}
+
+/* controls */
+.controls{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:16px}
+.ctrl{width:68px;height:68px;border-radius:999px;border:none;font-size:28px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.35)}
+.btn-no{background:#ff6b6b;color:white}
+.btn-info{background:rgba(255,255,255,0.12);color:#012434}
+.btn-yes{background:linear-gradient(90deg,var(--accent),#00f0b6);color:#003433;box-shadow:0 12px 30px rgba(0,207,165,0.18)}
+
+/* modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:60}
+.modal.hidden{display:none}
+.modal-card{background:linear-gradient(180deg,#ffffff,#f2fdff);color:#012434;border-radius:14px;padding:18px;width:90%;max-width:420px;box-shadow:0 20px 50px rgba(0,0,0,0.5)}
+.modal-body h2{margin:0 0 8px;font-size:1.3rem}
+.modal-body p{margin:0 0 14px;color:#2b494f}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+.primary{background:linear-gradient(90deg,var(--primary),var(--accent));border:none;color:white;padding:8px 12px;border-radius:10px;cursor:pointer}
+.secondary{background:transparent;border:1px solid #9fdfe3;color:#02323a;padding:8px 12px;border-radius:10px;cursor:pointer}
+
+/* small screens */
+@media (max-width:480px){
+  .deck{height:72vh}
+  .card{height:58vh}
+  .ctrl{width:60px;height:60px;font-size:26px}
+}
+
