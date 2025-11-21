@@ -1,41 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Match de Juntas — Kuyana</title>
-  <link rel="stylesheet" href="match.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuyana | Match de Junta</title>
+  <link rel="stylesheet" href="match.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <!-- ========== BARRA SUPERIOR ========== -->
   <header class="topbar">
-    <img src="logo.png" alt="Kuyana" class="logo" onclick="location.href='perfil.html'">
-    <h1>Encuentra tu junta</h1>
+    <h1>Kuyana Juntas 🤝</h1>
+    <div id="matchProgress">Selecciona el tamaño y filtros de tu junta.</div>
   </header>
 
+  <!-- ========== SECCIÓN CONFIGURACIÓN DE JUNTA ========== -->
   <main class="wrap">
-    <section class="deck" id="deck"></section>
+    <section id="juntaSetup" class="junta-setup">
+      <h2>Configura tu Junta</h2>
 
-    <div class="controls">
-      <button id="btnNo" class="ctrl btn-no" aria-label="No">❌</button>
-      <button id="btnInfo" class="ctrl btn-info" aria-label="Info">👁️</button>
-      <button id="btnYes" class="ctrl btn-yes" aria-label="Sí">❤️</button>
-    </div>
+      <div class="setup-group">
+        <label for="juntaSelect">Tamaño de la Junta:</label>
+        <select id="juntaSelect">
+          <option value="0" selected>Selecciona...</option>
+          <option value="3">3 personas</option>
+          <option value="5">5 personas</option>
+          <option value="7">7 personas</option>
+        </select>
+      </div>
+
+      <div class="setup-group">
+        <label for="rubroSelect">Filtrar por Rubro:</label>
+        <select id="rubroSelect">
+          <option value="all" selected>Todos</option>
+          <option value="Bodega">Bodega</option>
+          <option value="Ferretería">Ferretería</option>
+          <option value="Panadería">Panadería</option>
+          <option value="Comercio">Comercio</option>
+          <option value="Artesanía">Artesanía</option>
+          <option value="Barbería">Barbería</option>
+          <option value="Taller">Taller</option>
+        </select>
+      </div>
+
+      <div class="setup-group">
+        <label for="montoSelect">Rango de Monto:</label>
+        <select id="montoSelect">
+          <option value="all" selected>Todos</option>
+          <option value="300-800">S/ 300 – 800</option>
+          <option value="800-1500">S/ 800 – 1500</option>
+          <option value="1500+">S/ 1500+</option>
+        </select>
+      </div>
+
+      <button id="startJuntaBtn" class="btn-primary">Iniciar Búsqueda</button>
+    </section>
+
+    <!-- ========== SECCIÓN PRINCIPAL DE MATCH ========== -->
+    <section id="matchControls" class="hidden">
+      <div id="deck" class="deck"></div>
+
+      <div class="controls">
+        <button id="btnNo" class="ctrl-btn" aria-label="Descartar">❌</button>
+        <button id="btnInfo" class="ctrl-btn" aria-label="Ver más información">👁️</button>
+        <button id="btnYes" class="ctrl-btn" aria-label="Aceptar">❤️</button>
+      </div>
+
+      <div id="juntaCompleteBanner" class="junta-banner hidden">
+        🎉 Tu junta está completa. ¡Felicidades!
+      </div>
+    </section>
   </main>
 
-  <!-- modal match -->
+  <!-- ========== MODAL MATCH EXITOSO ========== -->
   <div id="matchModal" class="modal hidden" role="dialog" aria-modal="true">
-    <div class="modal-card">
-      <div class="modal-body">
-        <h2>🎉 ¡Match financiero!</h2>
-        <p id="matchText">Puedes iniciar una junta con ...</p>
-        <div class="modal-actions">
-          <button id="goChat" class="primary">Contactar</button>
-          <button id="closeModal" class="secondary">Seguir buscando</button>
-        </div>
+    <div class="modal-content">
+      <h3>🎯 ¡Nuevo Match!</h3>
+      <p id="matchText"></p>
+      <div class="modal-actions">
+        <button id="goChat" class="btn-primary">Ir al chat</button>
+        <button id="closeModal" class="btn-secondary">Cerrar</button>
       </div>
     </div>
   </div>
 
+  <!-- ========== MODAL SOLICITUD ENVIADA ========== -->
+  <div id="requestModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>📤 Solicitud Enviada</h3>
+      <p id="requestText"></p>
+      <div class="modal-actions">
+        <button id="closeRequestModal" class="btn-primary">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MODAL JUNTA COMPLETA ========== -->
+  <div id="juntaCompleteModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>🥳 ¡Junta Completa!</h3>
+      <p>🎉 <strong>¡Junta creada con éxito!</strong> Kuyana coordinará los próximos pasos.</p>
+      <div class="modal-actions">
+        <button id="closeJuntaModal" class="btn-primary">Cerrar y reiniciar</button>
+      </div>
+    </div>
+  </div>
+  <!-- MENÚ INFERIOR -->
+  <nav class="menu-inferior">
+    <a href="match.html" class="menu-item">
+      <i class="lucide-search"></i><span>Junta</span>
+    </a>
+    <a href="educacion.html" class="menu-item">
+      <i class="lucide-graduation-cap"></i><span>Aprender</span>
+    </a>
+    <a href="invertir.html" class="menu-item">
+      <i class="lucide-piggy-bank"></i><span>Invertir</span>
+    </a>
+    <a href="perfil.html" class="menu-item">
+      <i class="lucide-user"></i><span>Perfil</span>
+    </a>
+  </nav>
+  <!-- ========== SCRIPT ========== -->
   <script src="match.js"></script>
 </body>
 </html>

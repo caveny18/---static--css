@@ -1,28 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registro | Kuyana</title>
-  <link rel="stylesheet" href="registro.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Kuyana</title>
+  <link rel="stylesheet" href="registro.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-  <header class="top-bar">
-    <img src="kuyanalogo.png" alt="Kuyana Logo" class="logo" id="goHome">
-  </header>
 
   <div class="registro-container">
-    <div class="registro-card">
-      <div id="step-container"></div>
+    <h1 class="titulo">Crear tu cuenta</h1>
+    <p class="subt">Completa tus datos para empezar</p>
 
-      <div class="registro-actions">
-        <button id="btnBack" class="btn-secondary">Atrás</button>
-        <button id="btnNext" class="btn-primary">Siguiente</button>
+    <form id="registroForm" class="formulario">
+
+      <div class="campo">
+        <label>Nombre completo</label>
+        <input type="text" id="nombreCompleto" placeholder="Ej: Juan Pérez Gonzales" required>
       </div>
-    </div>
+
+      <div class="campo">
+        <label>Correo electrónico</label>
+        <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+      </div>
+
+      <div class="campo">
+        <label>Contraseña</label>
+        <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
+      </div>
+
+      <div class="campo">
+        <label>Número de celular</label>
+        <input type="tel" id="celular" placeholder="999 999 999">
+      </div>
+
+      <div class="campo">
+        <label>País</label>
+        <select id="pais" required>
+          <option value="Perú">Perú</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Provincia</label>
+        <input type="text" id="provincia" list="listaProvincias">
+        <datalist id="listaProvincias"></datalist>
+      </div>
+
+      <div class="campo">
+        <label>Rol principal</label>
+        <input type="text" id="rol" placeholder="Ej: Gerente, Director, Socio">
+      </div>
+
+      <div class="campo">
+        <label>Método de pago</label>
+        <input type="text" id="rol" placeholder="Ej: Yape, Plin">
+      </div>
+
+      <div class="campo">
+        <label>Nombre de la organización / negocio</label>
+        <input type="text" id="nombreNegocio" placeholder="Ej: Sociedad MVP S.A.C.">
+      </div>
+
+      <div class="campo">
+        <label>DNI / CE (Opcional)</label>
+        <input type="text" id="dni" placeholder="Documento de identidad">
+      </div>
+
+      <button class="btn-registrar" type="submit">Crear cuenta</button>
+
+    </form>
+
+    <p class="login-link">
+      ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+    </p>
+
   </div>
 
   <script src="registro.js"></script>
+  <script>lucide.createIcons()</script>
 </body>
 </html>

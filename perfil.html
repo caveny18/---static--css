@@ -10,12 +10,17 @@
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="top-bar">
-    <img src="kuyanalogo.png" alt="Kuyana Logo" class="logo" id="goHome">
+    <img src="recursos/kuyanalogo.png" alt="Kuyana Logo" class="logo">
   </header>
 
   <main class="perfil-container">
-    <div class="perfil-card" id="perfilCard">
+
+    <div class="perfil-card">
+
+      <!-- FOTO PERFIL DEL NEGOCIO -->
       <div class="perfil-header">
         <div class="foto-container">
           <img id="fotoPerfil" src="negocio-default.png" alt="Foto del negocio">
@@ -24,40 +29,119 @@
         </div>
 
         <h2 id="apodoDisplay">@Usuario</h2>
-        <span class="verificado">✔️ Verificado</span>
+
+        <!-- Identidad verificada -->
+        <span class="verificado">✔ Identidad verificada</span>
+
+        <!-- Negocio verificado -->
+        <span class="verificado-negocio">🏆 Negocio verificado por Kuyana</span>
+
         <div class="nivel-container">
           <div class="nivel-info">
-            <span>Nivel financiero: <strong>3</strong></span>
+            <span>Nivel financiero: <strong id="nivelFinancieroDisplay">3</strong></span>
             <span class="etiqueta">Avanzando 💪</span>
           </div>
           <div class="barra-nivel">
-            <div class="progreso" style="width: 60%;"></div>
+            <div class="progreso" id="barraNivel"></div>
           </div>
         </div>
       </div>
 
+      <!-- INFO NEGOCIO -->
       <div class="perfil-info">
         <h3>Negocio</h3>
+
         <p><strong>Rubro:</strong> <span id="rubroDisplay"></span></p>
         <p><strong>Experiencia:</strong> <span id="experienciaDisplay"></span></p>
         <p><strong>Ubicación:</strong> <span id="ubicacionDisplay"></span></p>
+
+        <!-- NUEVA INFO AÑADIDA -->
+        <p><strong>Acepta Yape:</strong> <span id="yapeDisplay"></span></p>
+        <p><strong>Acepta Plin:</strong> <span id="plinDisplay"></span></p>
+        <p><strong>¿Ha participado antes en juntas?:</strong> <span id="participacionDisplay"></span></p>
       </div>
 
+      <!-- GALERÍA CON EDITAR/ELIMINAR -->
+      <div class="galeria-negocio">
+        <h3>Fotos del negocio</h3>
+
+        <div class="gallery" id="gallery"></div>
+
+        <label class="btn-subir-multiples">
+          📤 Subir fotos
+          <input type="file" id="inputMultiples" accept="image/*" multiple hidden>
+        </label>
+
+        <input type="file" id="editInput" accept="image/*" hidden>
+      </div>
+
+      <!-- CONTACTO -->
       <div class="perfil-contacto">
         <h3>Contacto</h3>
         <p><strong>Celular:</strong> <span id="celularDisplay"></span></p>
         <p><strong>Correo:</strong> <span id="emailDisplay"></span></p>
       </div>
 
+      <!-- BOTONES -->
       <div class="perfil-acciones">
         <button id="btnVista" class="btn-secundario">👁 Vista pública</button>
+        <button id="btnEditar" class="btn-primario">✏️ Editar perfil</button>
       </div>
+
     </div>
+
   </main>
 
-  <!-- Menú inferior -->
-  <nav class="menu-inferior">
+  <!-- =========== MODAL DE EDICIÓN =========== -->
+  <div id="modalEditar" class="modal">
+    <div class="modal-contenido">
+      <h2>Editar perfil</h2>
 
+      <label>Apodo</label>
+      <input type="text" id="editApodo">
+
+      <label>Rubro del negocio</label>
+      <input type="text" id="editRubro">
+
+      <label>Experiencia</label>
+      <input type="text" id="editExperiencia">
+
+      <label>Ubicación</label>
+      <input type="text" id="editUbicacion">
+
+      <label>Acepta Yape</label>
+      <select id="editYape">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Acepta Plin</label>
+      <select id="editPlin">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>¿Ha participado antes en juntas?</label>
+      <select id="editParticipacion">
+        <option value="Sí">Sí, anteriormente</option>
+        <option value="No">No, primera vez</option>
+      </select>
+
+      <label>Celular</label>
+      <input type="text" id="editCelular">
+
+      <label>Correo</label>
+      <input type="email" id="editCorreo">
+
+      <div class="modal-botones">
+        <button id="btnCancelar" class="btn-secundario">Cancelar</button>
+        <button id="btnGuardar" class="btn-primario">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENÚ INFERIOR -->
+  <nav class="menu-inferior">
     <a href="match.html" class="menu-item">
       <i class="lucide-search"></i><span>Junta</span>
     </a>
@@ -71,5 +155,6 @@
       <i class="lucide-user"></i><span>Perfil</span>
     </a>
   </nav>
+
 </body>
 </html>

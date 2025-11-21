@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuyana | Junta</title>
+  <link rel="stylesheet" href="junta.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css">
+  <script defer src="junta.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="top-bar">
+    <h1>Mi Junta</h1>
+  </header>
+
+  <main class="junta-container">
+
+    <!-- INFO PRINCIPAL -->
+    <section class="junta-info">
+      <h2>Junta Comunitaria</h2>
+      <p class="descripcion">Aporte semanal entre tus vecinos y emprendedores.</p>
+
+      <!-- Barra de progreso -->
+      <div class="progreso-junta">
+        <div class="progreso-inner" id="barraProgreso"></div>
+      </div>
+
+      <p class="estado">Semana <span id="semanaActual">1</span> de <span id="totalSemanas">8</span></p>
+    </section>
+
+    <!-- LISTA DE PARTICIPANTES -->
+    <section class="lista">
+      <h3>Participantes</h3>
+
+      <div id="participantesContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- MENÚ INFERIOR -->
+  <nav class="menu-inferior">
+    <a href="match.html" class="menu-item">
+      <i class="lucide-search"></i><span>Junta</span>
+    </a>
+    <a href="educacion.html" class="menu-item">
+      <i class="lucide-graduation-cap"></i><span>Aprender</span>
+    </a>
+    <a href="invertir.html" class="menu-item">
+      <i class="lucide-piggy-bank"></i><span>Invertir</span>
+    </a>
+    <a href="perfil.html" class="menu-item">
+      <i class="lucide-user"></i><span>Perfil</span>
+    </a>
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #dff7ff, #f9fffd);
+  min-height: 100vh;
+  padding-bottom: 110px;
+}
+
+/* HEADER */
+.top-bar {
+  padding: 15px;
+  text-align: center;
+  background: white;
+  border-bottom: 1px solid #ccf2ff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007fa1;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* CONTENEDOR */
+.junta-container {
+  padding: 20px;
+  max-width: 550px;
+  margin: auto;
+}
+
+/* INFO PRINCIPAL */
+.junta-info {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  margin-bottom: 25px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.junta-info h2 {
+  font-size: 1.4rem;
+  color: #009db5;
+}
+
+.descripcion {
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+/* Barra de progreso */
+.progreso-junta {
+  width: 100%;
+  height: 12px;
+  background: #e6f9ff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progreso-inner {
+  height: 100%;
+  width: 10%;
+  background: linear-gradient(90deg, #00bcd4, #00e6a8);
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.estado {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #009db5;
+}
+
+/* PARTICIPANTES */
+.lista {
+  margin-top: 25px;
+}
+
+.lista h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #009db5;
+}
+
+.participante-card {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  animation: fadeInUp 0.35s ease;
+}
+
+.participante-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.participante-info strong {
+  color: #222;
+  font-size: 1rem;
+}
+
+.participante-info span {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Estados */
+.estado-tag {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.pagado {
+  background: #dffff1;
+  color: #0c9a55;
+}
+
+.pendiente {
+  background: #fff8d8;
+  color: #b89200;
+}
+
+.retrasado {
+  background: #ffe1e1;
+  color: #d90000;
+}
+
+/* MENÚ INFERIOR */
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #d8f2ff;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.menu-item {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #789aaa;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  color: #00bcd4;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

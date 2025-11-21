@@ -1,179 +1,395 @@
+/* =========================================================
+   VARIABLES Y RESET
+========================================================= */
 :root {
-  --primario: #0077ff;
-  --secundario: #00cfa5;
-  --oscuro: #00182a;
-  --texto: #e7f8ff;
-  --suave: rgba(255, 255, 255, 0.1);
+  --primary: #00bcd4;
+  --primary-light: #41c9ff;
+  --secondary: #00e6a8;
+  --bg-soft: #e9f7ff;
+  --bg-soft-2: #e4f6ff;
+  --text-dark: #1f1f1f;
+  --text-mid: #555;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  --transition: 0.25s ease;
+  --gradient-main: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  background: linear-gradient(180deg, var(--oscuro), #003b66);
-  color: var(--texto);
+  background: linear-gradient(180deg, var(--bg-soft), #ffffff);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
+/* =========================================================
+   HEADER
+========================================================= */
 .top-bar {
-  text-align: center;
-  padding: 15px 0;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
-}
-
-.logo {
-  width: 120px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.logo:hover { transform: scale(1.07); }
-
-.perfil-container {
-  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 80px 0 90px;
+  padding: 15px 0;
+  background: #ffffffaa;
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid #daf1ff;
+}
+
+.top-bar .logo {
+  height: 45px;
+}
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+.perfil-container {
+  padding: 20px;
+  padding-bottom: 130px;
 }
 
 .perfil-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 25px;
-  padding: 25px;
-  width: 90%;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s;
-  animation: fadeUp 0.6s ease-out;
+  background: white;
+  border-radius: var(--radius);
+  padding: 22px;
+  width: 100%;
+  max-width: 470px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.45s ease-out;
 }
 
-@keyframes fadeUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
+/* =========================================================
+   FOTO DE PERFIL
+========================================================= */
 .foto-container {
   position: relative;
-  display: inline-block;
+  width: 135px;
+  height: 135px;
+  margin: 5px auto 15px;
 }
+
 .foto-container img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid var(--secundario);
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
   object-fit: cover;
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+  border: 3px solid #c4ecff;
+  transition: transform 0.25s ease;
+}
+
+.foto-container img:hover {
+  transform: scale(1.03);
 }
 
 .btn-cambiar-foto {
   position: absolute;
-  bottom: 6px;
-  right: 8px;
-  background: var(--primario);
+  right: -8px;
+  bottom: -8px;
+  background: var(--primary);
   color: white;
-  padding: 6px;
+  padding: 8px;
   border-radius: 50%;
+  font-size: 18px;
   cursor: pointer;
-  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.5);
+  transition: var(--transition);
 }
-.btn-cambiar-foto:hover { background: var(--secundario); }
+
+.btn-cambiar-foto:hover {
+  transform: scale(1.15);
+}
+
+/* =========================================================
+   INFORMACIÓN DEL PERFIL
+========================================================= */
+.perfil-header {
+  text-align: center;
+}
+
+#apodoDisplay {
+  font-size: 1.5rem;
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
 
 .verificado {
   display: inline-block;
-  background: var(--secundario);
-  color: #002b3d;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
   margin-top: 6px;
+  background: #d5f7e8;
+  color: #1fa366;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 0.83rem;
+  font-weight: 500;
 }
 
+/* =========================================================
+   NIVEL FINANCIERO
+========================================================= */
 .nivel-container {
-  text-align: left;
-  margin: 15px 0;
+  margin-top: 20px;
 }
+
 .nivel-info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.barra-nivel {
-  background: rgba(255, 255, 255, 0.15);
-  height: 10px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-top: 5px;
-}
-.progreso {
-  height: 100%;
-  background: linear-gradient(90deg, var(--secundario), var(--primario));
-  border-radius: 20px;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--text-mid);
 }
 
-.perfil-info, .perfil-contacto {
-  background: var(--suave);
-  border-radius: 15px;
-  padding: 15px;
-  margin: 15px 0;
-  text-align: left;
+.barra-nivel {
+  width: 85%;
+  height: 11px;
+  background: var(--bg-soft-2);
+  border-radius: 30px;
+  margin: 12px auto 0;
+  overflow: hidden;
+}
+
+.progreso {
+  height: 100%;
+  background: var(--gradient-main);
+  border-radius: 20px;
+  animation: growBar 1.4s ease-out;
+}
+
+@keyframes growBar {
+  from {
+    width: 0;
+  }
+}
+
+/* =========================================================
+   SECCIONES INFO
+========================================================= */
+.perfil-info,
+.perfil-contacto,
+.perfil-adicional {
+  margin-top: 25px;
 }
 
 h3 {
-  margin-bottom: 10px;
-  color: #9ce8ff;
+  margin-bottom: 8px;
+  color: #007fa1;
+  font-size: 1.05rem;
+}
+
+.perfil-info p,
+.perfil-contacto p,
+.perfil-adicional p {
+  margin: 4px 0;
+  font-size: 0.94rem;
+  color: var(--text-dark);
+}
+
+/* =========================================================
+   GALERÍA DEL NEGOCIO
+========================================================= */
+.galeria-negocio {
+  margin-top: 25px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.gallery-item {
+  position: relative;
+  transition: 0.25s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #d6f4ff;
+  transition: transform 0.25s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* botones galería */
+.gallery-item button {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  display: grid;
+  place-items: center;
+  transition: 0.2s;
+}
+
+.delete-btn {
+  top: 5px;
+  right: 5px;
+  background: #ff6b6b;
+}
+.delete-btn:hover {
+  background: #e84545;
+  transform: scale(1.12);
+}
+
+.edit-btn {
+  bottom: 5px;
+  right: 5px;
+  background: var(--primary);
+}
+.edit-btn:hover {
+  background: var(--primary-light);
+  transform: scale(1.12);
+}
+
+/* subir fotos */
+.btn-subir-multiples {
+  display: block;
+  text-align: center;
+  background: var(--primary);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  color: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.35);
+}
+
+.btn-subir-multiples:hover {
+  background: #009fb6;
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   BOTONES
+========================================================= */
+.btn-primario,
+.btn-secundario {
+  width: 100%;
+  padding: 13px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-size: 1rem;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primario {
+  background: var(--gradient-main);
+  color: white;
+  box-shadow: 0 4px 18px rgba(0, 207, 197, 0.45);
+}
+.btn-primario:hover {
+  transform: translateY(-4px);
 }
 
 .btn-secundario {
-  background: var(--primario);
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: 0.3s;
+  background: #e9faff;
+  color: #007fa1;
 }
 .btn-secundario:hover {
-  background: var(--secundario);
-  color: #00222f;
+  background: #d6f6ff;
+  transform: translateY(-2px);
 }
 
-/* Menu inferior tipo app */
+/* =========================================================
+   MODAL
+========================================================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #00000060;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-contenido {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.35s ease;
+}
+
+.modal-contenido h2 {
+  margin-bottom: 15px;
+  color: #0087a1;
+  font-size: 1.15rem;
+}
+
+.modal-contenido input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #cfefff;
+  font-size: 0.95rem;
+}
+
+.modal-botones {
+  display: flex;
+  gap: 10px;
+}
+
+/* =========================================================
+   MENÚ INFERIOR
+========================================================= */
 .menu-inferior {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(12px);
+  background: white;
+  border-top: 1px solid #d8f2ff;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 10px 0;
+  padding: 12px 0;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .menu-item {
-  color: #aeefff;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #789aaa;
   text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.8rem;
-  transition: all 0.3s;
+  transition: 0.2s;
 }
-.menu-item i { font-size: 1.5rem; margin-bottom: 4px; }
-.menu-item:hover, .menu-item.activo { color: var(--secundario); transform: scale(1.1); }
 
-@media (max-width: 480px) {
-  .perfil-card {
-    padding: 20px;
+.menu-item.activo {
+  color: var(--primary);
+  font-weight: 600;
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-  .foto-container img {
-    width: 110px;
-    height: 110px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

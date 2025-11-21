@@ -1,72 +1,318 @@
-/* match.css — Estética bancaria + Tinder-like */
-:root{
-  --bg1: #00182a;
-  --bg2: #003150;
-  --card: #ffffff;
-  --accent: #00cfa5;
-  --primary: #0077ff;
+/* ===========================
+   ESTILO GLOBAL
+=========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,InterVar,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#eaf9ff;background:linear-gradient(180deg,var(--bg1),var(--bg2));-webkit-font-smoothing:antialiased}
-
-.topbar{
-  display:flex;align-items:center;gap:12px;padding:14px 18px;
-  background:rgba(255,255,255,0.03);backdrop-filter:blur(6px);
-  position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(255,255,255,0.03)
-}
-.topbar .logo{width:54px;height:auto;cursor:pointer;transition:transform .2s}
-.topbar .logo:hover{transform:scale(1.04)}
-.topbar h1{font-size:1.05rem;margin:0;color:#dff8ff;font-weight:600}
-
-/* layout */
-.wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:18px 12px 120px;min-height:calc(100vh - 72px)}
-.deck{width:100%;max-width:420px;height:640px;position:relative;display:flex;align-items:center;justify-content:center}
-
-/* card */
-.card{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:340px;max-width:92vw;height:520px;border-radius:18px;background:var(--card);color:#073240;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-  overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,opacity .2s ease;
-  touch-action:none;user-select:none;
-}
-.card img{width:100%;height:60%;object-fit:cover}
-.card .meta{padding:14px 16px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.card h3{margin:0;font-size:1.25rem;color:#012434}
-.card p{margin:6px 0;color:#4a6b75}
-.badges{display:flex;gap:8px;margin-top:8px}
-.badge{background:linear-gradient(90deg,var(--primary),var(--accent));color:white;padding:6px 10px;border-radius:999px;font-size:0.82rem;box-shadow:0 6px 18px rgba(0,119,255,0.12)}
-
-/* like/dislike indicators */
-.indicator {
-  position:absolute;top:22px;left:22px;padding:10px 14px;border-radius:8px;font-weight:700;opacity:0;transform:scale(.9);
-  transition:all .18s ease;
-}
-.indicator.like{right:auto;left:22px;background:rgba(4,200,150,0.95);color:white}
-.indicator.no{right:22px;left:auto;background:rgba(255,90,90,0.95);color:white}
-
-/* controls */
-.controls{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:16px}
-.ctrl{width:68px;height:68px;border-radius:999px;border:none;font-size:28px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.35)}
-.btn-no{background:#ff6b6b;color:white}
-.btn-info{background:rgba(255,255,255,0.12);color:#012434}
-.btn-yes{background:linear-gradient(90deg,var(--accent),#00f0b6);color:#003433;box-shadow:0 12px 30px rgba(0,207,165,0.18)}
-
-/* modal */
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:60}
-.modal.hidden{display:none}
-.modal-card{background:linear-gradient(180deg,#ffffff,#f2fdff);color:#012434;border-radius:14px;padding:18px;width:90%;max-width:420px;box-shadow:0 20px 50px rgba(0,0,0,0.5)}
-.modal-body h2{margin:0 0 8px;font-size:1.3rem}
-.modal-body p{margin:0 0 14px;color:#2b494f}
-.modal-actions{display:flex;gap:10px;justify-content:flex-end}
-.primary{background:linear-gradient(90deg,var(--primary),var(--accent));border:none;color:white;padding:8px 12px;border-radius:10px;cursor:pointer}
-.secondary{background:transparent;border:1px solid #9fdfe3;color:#02323a;padding:8px 12px;border-radius:10px;cursor:pointer}
-
-/* small screens */
-@media (max-width:480px){
-  .deck{height:72vh}
-  .card{height:58vh}
-  .ctrl{width:60px;height:60px;font-size:26px}
+body {
+  background: linear-gradient(180deg, #d5f4ff 0%, #f8fdff 100%);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
+/* ===========================
+   BARRA SUPERIOR
+=========================== */
+.topbar {
+  background-color: #00b8d9;
+  color: white;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topbar h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+#matchProgress {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ===========================
+   SECCIÓN DE CONFIGURACIÓN
+=========================== */
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 1.5rem;
+}
+
+.junta-setup {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.junta-setup h2 {
+  margin-bottom: 1.2rem;
+  color: #00b8d9;
+}
+
+.setup-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.setup-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.setup-group select {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   BOTONES GENERALES
+=========================== */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.15s ease, background 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #00b8d9;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #0096b7;
+  transform: scale(1.03);
+}
+
+.btn-secondary {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.7rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.btn-secondary:hover {
+  background-color: #e4e4e4;
+  transform: scale(1.03);
+}
+
+/* ===========================
+   ZONA DE TARJETAS / MATCH
+=========================== */
+#matchControls {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deck {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  margin-bottom: 1rem;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  color: #00b8d9;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+/* ===========================
+   CONTROLES DE MATCH
+=========================== */
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  max-width: 300px;
+  margin-top: 0.5rem;
+}
+
+.ctrl-btn {
+  font-size: 1.8rem;
+  background: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ctrl-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ===========================
+   BANNER JUNTA COMPLETA
+=========================== */
+.junta-banner {
+  background: #e0f8ff;
+  color: #0089a7;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* ===========================
+   MODALES
+=========================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.35s ease;
+}
+
+.modal-content h3 {
+  color: #00b8d9;
+  margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* MENÚ INFERIOR */
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #d8f2ff;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.menu-item {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #789aaa;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  color: #00bcd4;
+}
+
+/* ===========================
+   ANIMACIONES
+=========================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===========================
+   UTILIDADES
+=========================== */
+.hidden {
+  display: none !important;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 480px) {
+  .deck {
+    height: 380px;
+  }
+  .ctrl-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
