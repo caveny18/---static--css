@@ -35,3 +35,12 @@ document.getElementById("registroForm").addEventListener("submit", (e) => {
   alert("Registro completado con éxito 🎉");
   window.location.href = "perfil.html";
 });
+
+document.getElementById("registroForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // evita que recargue la página
+  
+  // Aquí podrías validar o guardar datos (si tuvieras backend)
+
+  // Redirigir al perfil
+  window.location.href = "perfil.html";
+});
